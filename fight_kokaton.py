@@ -143,12 +143,12 @@ class Bomb:
 
 
 class Score:
-    def __init__(self):
+    def __init__(self): # イニシャライザ
         self.fonto = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
         self.score = 0
         self.img = self.fonto.render("スコア：", 0, (0, 0, 255))
         self.rct = self.img.get_rect()
-        self.rct.center = (100, HEIGHT - 50)
+        self.rct.center = (100, HEIGHT - 50) # 画面左下(横座標：100，縦座標：画面下部から50)
         
     def update(self, screen: pg.Surface):
         self.img = self.fonto.render(f"スコア：{self.score}", 0, (0, 0, 255))
@@ -193,7 +193,7 @@ def main():
             if beam is not None:
                 if beam.rct.colliderect(bomb.rct):
                     # ビームが爆弾に当たったら，爆弾とビームを消す
-                    score.score += 1
+                    score.score += 1 # 当たったら1点
                     beam = None
                     bombs[b] = None
                     bird.change_img(6, screen)
