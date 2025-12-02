@@ -114,7 +114,6 @@ class Bomb:
     """
     爆弾に関するクラス
     """
-    
     def __init__(self, color: tuple[int, int, int], rad: int):
         """
         引数に基づき爆弾円Surfaceを生成する
@@ -193,7 +192,6 @@ def main():
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
             #     # スペースキー押下でBeamクラスのインスタンス生成
                 beams.append(Beam(bird))
-                # beam = Beam(bird)
         screen.blit(bg_img, [0, 0])
         
         for b, bomb in enumerate(bombs):
@@ -206,17 +204,6 @@ def main():
                 pg.display.update()
                 time.sleep(1)
                 return
-            
-        # for b, bomb in enumerate(bombs):
-        #     if beam is not None:
-        #         if beam.rct.colliderect(bomb.rct):
-        #             # ビームが爆弾に当たったら，爆弾とビームを消す
-        #             score.score += 1 # 当たったら1点
-        #             beam = None
-        #             bombs[b] = None
-        #             bird.change_img(6, screen)
-        #             pg.display.update()
-        # bombs = [bomb for bomb in bombs if bomb is not None]
         
         for i, beam in enumerate(beams):
             for j, bomb in enumerate(bombs):
@@ -245,8 +232,6 @@ def main():
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
         score.update(screen)
-        # beam.update(screen)   
-        # bomb.update(screen)
         pg.display.update()
         tmr += 1
         clock.tick(50)
